@@ -1,9 +1,9 @@
-## Word and Character Count
-### Utility application
+## Word Count
 
-#### Simply write or paste in to the text box and the total word and character count are displayed. 
-#### Useful for copywriting when an article or section is word count/size dependent.
+#### Simply write or paste in to the text box and the total word or word occurance count are displayed. 
 
-![Preview](./preview.png)
+#### Alternatively, upload a .txt file. (Saved to your browser ONLY)
 
 [Live Site](https://word-count.github.io)
+
+![Preview](./preview.png)
