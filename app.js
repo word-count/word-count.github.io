@@ -1,3 +1,4 @@
+let clearTextAreaBtn = document.getElementById('clearTextAreaBtn');
 let totalWordCount = document.getElementById('totalWordCount');
 let characterCount = document.getElementById('characterCount');
 let textAreaInput = document.getElementById('textAreaInput');
@@ -6,19 +7,52 @@ let searchWordsInput = document.getElementById('searchWords');
 let wordOccurancesCountDiv = document.getElementById('wordOccurancesCount');
 let renderTextAndSearch = document.getElementById('renderTextAndSearch');
 
+
+textAreaInput.addEventListener('input', updateButtonText);
+updateButtonText();
+
+function updateButtonText() {
+  if (textAreaInput.value.trim() !== '') {
+    clearTextAreaBtn.innerText = 'Clear Text';
+  } else {
+    clearTextAreaBtn.innerText = '';
+  }
+}
+
+clearTextAreaBtn.addEventListener("click", clearEverything);
+
+function clearEverything() {
+  fileInput.value = "";
+  renderTextAndSearch.innerHTML = "";
+  wordOccurancesCountDiv.innerHTML = "";
+  searchWordsInput.value = "";
+  textAreaInput.value = "";
+  clearTextAreaBtn.innerText = '';
+  totalWordCount.innerText = "";
+  characterCount.innerText = "";
+}
+
+
+
 function clearFileText(){
   fileInput.value = "";
   renderTextAndSearch.innerHTML = "";
   wordOccurancesCountDiv.innerHTML = "";
   searchWordsInput.value = "";
+  totalWordCount.innerText = "";
+  characterCount.innerText = "";
 }
 
+// if user uploads .txt file reset values
 fileInput.addEventListener('change', function() {
   if (fileInput.files.length > 0) {
     textAreaInput.value = "";
     renderTextAndSearch.innerHTML = "";
     wordOccurancesCountDiv.innerHTML = "";
     searchWordsInput.value = "";
+    clearTextAreaBtn.innerText = "";
+    totalWordCount.innerText = "";
+    characterCount.innerText = "";
   }
 });
 

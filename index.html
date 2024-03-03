@@ -31,8 +31,10 @@
   </nav>
 
 
-  <div class="max-w-4xl mx-auto bg-white p-6 rounded mb-24">
+  <div class="max-w-4xl mx-auto bg-white p-1 sm:p-6 rounded mb-24">
     
+    <div class="flex justify-end"><a><p id="clearTextAreaBtn" class="text-sm mb-1 uppercase cursor-pointer select-none"></p></a></div>
+
     <!-- ADD TEXT CONTENT DIRECTLY (not .txt file) -->
     <textarea onfocus="clearFileText()" id="textAreaInput" placeholder="ENTER TEXT HERE (Max 10000 characters). Search for words and how many times they are used." class="mb-2 p-2 border w-full h-48 rounded"></textarea>
     
@@ -46,7 +48,7 @@
       
       <!-- UPLOAD A FILE.txt -->
       <div class="mt-0 mb-4">
-        <label for="fileInput" class="mr-2 text-md font-medium text-gray-600">OR upload .txt File:</label>
+        <label for="fileInput" class="mr-2 text-md font-medium text-gray-600 text-center block sm:inline-block">OR upload .txt File:</label>
 
         <input type="file" id="fileInput" accept=".txt" class="mt-1 p-2 border rounded">
       </div>
@@ -62,7 +64,7 @@
       <input type="text" id="searchWords" placeholder="Enter, search, words" class="p-2 border rounded-tl rounded-bl flex-1">
 
       <!-- SUBMIT -->
-      <button onclick="highlightSearchWords()" class="bg-[#fc83d3] text-white leading-5 px-4 rounded-tr rounded-br hover:bg-[#fc83d399]">Highlight / Count</button>
+      <button onclick="highlightSearchWords()" class="bg-[#fc83d3] text-white leading-5 px-1 sm:px-4 rounded-tr rounded-br hover:bg-[#fc83d399]"><span class="hidden sm:inline-block">Highlight /</span> Count</button>
     </div>
 
     <!-- display table of word occurances -->
