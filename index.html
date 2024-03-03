@@ -34,15 +34,15 @@
   <div class="max-w-4xl mx-auto bg-white p-6 rounded mb-24">
     
     <!-- ADD TEXT CONTENT DIRECTLY (not .txt file) -->
-    <textarea onfocus="clearFileText()" id="textAreaInput" placeholder="ENTER TEXT HERE (Max 5000 words). Search for words and how many times they are used." class="mb-2 p-2 border w-full h-48 rounded"></textarea>
+    <textarea onfocus="clearFileText()" id="textAreaInput" placeholder="ENTER TEXT HERE (Max 10000 characters). Search for words and how many times they are used." class="mb-2 p-2 border w-full h-48 rounded"></textarea>
     
     <!-- TOTAL WORD COUNT / CHARACTER COUNT -->
-    <div class="flex justify-between text-sm -mt-2">
+    <div class="flex flex-col md:flex-row justify-between text-sm -mt-2">
       <div id="totalWordCount"></div>
       <div id="characterCount"></div>
     </div>
     
-    <div class="flex justify-center">
+    <div class="flex justify-center mt-2">
       
       <!-- UPLOAD A FILE.txt -->
       <div class="mt-0 mb-4">
@@ -62,7 +62,7 @@
       <input type="text" id="searchWords" placeholder="Enter, search, words" class="p-2 border rounded-tl rounded-bl flex-1">
 
       <!-- SUBMIT -->
-      <button onclick="highlightSearchWords()" class="bg-[#fc83d3] text-white px-4 rounded-tr rounded-br hover:bg-[#fc83d399]">Highlight / Count</button>
+      <button onclick="highlightSearchWords()" class="bg-[#fc83d3] text-white leading-5 px-4 rounded-tr rounded-br hover:bg-[#fc83d399]">Highlight / Count</button>
     </div>
 
     <!-- display table of word occurances -->

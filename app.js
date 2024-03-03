@@ -48,8 +48,9 @@ function highlightSearchWords() {
   } else if (textAreaInput.value.trim() !== '') {
     content = textAreaInput.value;
 
-    totalWordCount.innerText = `Total words: ${content.trim().split(/\s+/).length}`;
-    characterCount.innerText = `${content.length} (Characters)`;
+    totalWordCount.innerText = `Total words: ${content.split(/\s+/).length}`;
+
+    characterCount.innerText = `Characters: ${content.split(/\s+/).join('').length} (${content.length} with spaces)`;
     
     if (searchWords.length === 0 || searchWords.every(word => word === '')) {
     renderTextAndSearch.innerHTML = '<p class="text-red-300 text-sm">No search word/s detected</p>';
@@ -65,7 +66,7 @@ function highlightSearchWords() {
 
 
 function processContent(content, element, searchWords) {
-  element.textContent = limitTextLength(content, 5000);
+  element.textContent = limitTextLength(content, 10000);
   const keywordCounts = highlightKeywordsInText(element, searchWords);
   displayKeywordCounts(keywordCounts);
 }
