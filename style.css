@@ -1,3 +1,6 @@
+body{
+  overflow-x: hidden;
+}
   .app{
     position: relative;
     z-index: 10;
