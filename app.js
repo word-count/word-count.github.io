@@ -48,9 +48,15 @@ function highlightSearchWords() {
   } else if (textAreaInput.value.trim() !== '') {
     content = textAreaInput.value;
 
+    totalWordCount.innerText = `Total words: ${content.trim().split(/\s+/).length}`;
     characterCount.innerText = `${content.length} (Characters)`;
     
+    if (searchWords.length === 0 || searchWords.every(word => word === '')) {
+    renderTextAndSearch.innerHTML = '<p class="text-red-300 text-sm">No search word/s detected</p>';
+      return;
+    }
     processContent(content, renderTextAndSearch, searchWords);
+
   } else {
     alert('No file or text input.');
     return;
@@ -77,8 +83,6 @@ function highlightKeywordsInText(element, searchWords) {
     const regex = new RegExp('\\b' + escapedKeyword + '\\b', 'gi');
     const matches = element.innerText.match(regex);
 
-    totalWordCount.innerText = `Total words: ${matches.length / 2}`;
-
     if (matches && matches.length > 0) {
       element.innerHTML = element.innerHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
 
@@ -100,7 +104,7 @@ function displayKeywordCounts(keywordCounts) {
       <table class="w-[100%]">
         <thead>
           <tr>
-            <th><span class="bg-black text-white px-4 py-0 w-fit">Word</span></th>
+            <th><span class="bg-black text-white px-4 py-0 w-fit">Search Word</span></th>
             <th><span class="bg-black text-white px-4 py-0 w-fit">Occurrences</span></th>
           </tr>
         </thead>
