@@ -5,7 +5,7 @@
   .brand{
     position: fixed;
     bottom: 0%;
-    left: 48%;
+    left: 50%;
     transform: translate(-50%, 35%);
     font-size: 40rem;
     font-family: sans-serif;

@@ -1,8 +1,10 @@
+let totalWordCount = document.getElementById('totalWordCount');
+let characterCount = document.getElementById('characterCount');
+let textAreaInput = document.getElementById('textAreaInput');
+let fileInput = document.getElementById('fileInput');
+let searchWordsInput = document.getElementById('searchWords');
 let wordOccurancesCountDiv = document.getElementById('wordOccurancesCount');
 let renderTextAndSearch = document.getElementById('renderTextAndSearch');
-let fileInput = document.getElementById('fileInput');
-let textAreaInput = document.getElementById('textAreaInput');
-let searchWordsInput = document.getElementById('searchWords');
 
 function clearFileText(){
   fileInput.value = "";
@@ -45,6 +47,9 @@ function highlightSearchWords() {
     reader.readAsText(fileInput.files[0]);
   } else if (textAreaInput.value.trim() !== '') {
     content = textAreaInput.value;
+
+    characterCount.innerText = `${content.length} (Characters)`;
+    
     processContent(content, renderTextAndSearch, searchWords);
   } else {
     alert('No file or text input.');
@@ -72,9 +77,13 @@ function highlightKeywordsInText(element, searchWords) {
     const regex = new RegExp('\\b' + escapedKeyword + '\\b', 'gi');
     const matches = element.innerText.match(regex);
 
+    totalWordCount.innerText = `Total words: ${matches.length / 2}`;
+
     if (matches && matches.length > 0) {
       element.innerHTML = element.innerHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
+
       keywordCounts[keyword] = matches.length;
+      
     } else {
       keywordCounts[keyword] = 0;
     }
